@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NFLX Ticker Genie</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        a {
+            color: #337ab7;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the NFLX Ticker Genie.</h1>
+        <p>Go to <a href="{{ url_for('predict') }}">the Crystal Ball</a> to gaze into tomorrow's forecast.</p>
+        <p>Disclaimer: This genie is not authorized to give financial advice.</p>
+    </div>
+</body>
+</html>
