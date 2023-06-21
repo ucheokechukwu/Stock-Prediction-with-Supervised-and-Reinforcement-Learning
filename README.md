@@ -65,10 +65,10 @@ The classifier model broadcasts its results at the end of US market day via flas
 
 The unpredictability of the stock market makes it a popular candidate for reinforcement learning. Following the Markov Decision Process, I imitated OpenGym AI's popular reinforcement learning API.
 
-1. S set of states in environment E. For this problem, the Environment is the price history of the NFLX ticker. The state space is defined by the _Cash Balance_, _Price of NFLX shares_, _Number of NFLX shares owned_.
-2. A set of actions available to the agent. In this case, 3 discrete actions of _0_ Hold, _1_ Buy, _2_ Sell.
-3. Ra (s, s') - reward received for transitioning from state s to state'. The reward schedule is the profit made in each step i.e. the _current_portfolio_balance_ - _previous_portfolio_balance_.
-4. P_a (S, S') = P(S[T+1] = S'|S[T] = S, A[T] = A), the probability that action a in state s at time t will lead to state s' at time t+1. An LSTM NN model is trained to find the best policy (pi) that maximizes the rewards of the action/state pairs.
+1. $S$ set of states in environment E. For this problem, the Environment is the price history of the NFLX ticker. The state space is defined by the _Cash Balance_, _Price of NFLX shares_, _Number of NFLX shares owned_.
+2. $A$ set of actions available to the agent. In this case, 3 discrete actions of _0_ Hold, _1_ Buy, _2_ Sell.
+3. $Ra (s, s')$ - reward received for transitioning from state $s$ to state $s'$. The reward schedule is the profit made in each step i.e. the _current_portfolio_balance_ - _previous_portfolio_balance_.
+4. $P_a(s, s') = Pr(s_{t+1} = s'|s_{t} = s, a_{t} = a)$, the probability that action $a$ in state $s$ at time $t$ will lead to state $s'$ at time $t+1$. An LSTM NN model is trained to find the best policy ($pi$) that maximizes the rewards of the action/state pairs.
 
 In both the training and test modes, the agent iterates through the price history to complete one episode. In training mode, the model is trained, using the action/space pairs of the agent as the input and the resulting rewards as outcome. During testing, the model's weights are frozen and the agent's performances are observed. The chart below shows the average (mode) decision made by the agent during the NFLX price history 'lifetime'.
 
@@ -88,7 +88,7 @@ By defaut, each episode starts with a cash balance of 1000 cash units. The train
 - A lot of effort is put into feature engineering... only to discover that the feature is of no value to the present model.
 - Time series problems have unique challenges.
 - Regardless of how sophisticated the architecture of a supervised learning model is, it remains only as good as the features/input parameters it was given.
-- Reinfrocement learning allows the algorithm discover patterns and strategies with less restriction. The potentials for this aspect of AI is quite exciting.
+- Reinforcement learning allows the algorithm to discover patterns and strategies with less restriction. The potentials for this aspect of AI is quite exciting.
 
 ### Future Work
 
