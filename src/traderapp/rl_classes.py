@@ -1,3 +1,5 @@
+import numpy as np
+
 class Environment:
     """
     NFLX trading Environment
@@ -10,7 +12,7 @@ class Environment:
         1 -> hold
         2 -> buy
     """
-    
+
     def __init__(self, data, initial_cash=10000):
         # data
         self.history = data
@@ -113,6 +115,10 @@ def get_data():
 
 
 class Agent():
+    """
+    Agent class
+    """
+
     def __init__(self, state_size, action_size):
         self.state_size = state_size
         self.action_size = action_size
@@ -124,6 +130,7 @@ class Agent():
         self.model = self._model() # will be overwritten in test mode
         
     def act(self, state):
+        import numpy as np
         if np.random.rand() <=self.epsilon:
             return np.random.choice(self.action_size)
         # if not epsilon, perform greedy action
@@ -147,12 +154,15 @@ class Agent():
             
             
     def _model(self):
+        from keras.models import Sequential
+        from keras.models import load_model
+        from keras.layers import Dense 
+        from keras.optimizers import Adam 
         model = Sequential()
         model.add(Dense(units=64, input_dim=self.state_size, activation="relu"))
         model.add(Dense(units=32, activation="relu"))
-#         model.add(Dense(units=8, activation="relu"))
         model.add(Dense(self.action_size, activation="linear"))
-        model.compile(loss="mse", optimizer=Adam(lr=0.001))
+        model.compile(loss="mse", optimizer=Adam(learning_rate=0.001))
         return model
   
         

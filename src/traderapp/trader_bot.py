@@ -20,14 +20,11 @@ def trader_bot(mode, epochs=50, split=0.8, initial_cash=1000):
     runs 'epochs' number of episodes in the rl trading 
     outputs: the agent (including model and losses) and portfolio returns
     """
-    import numpy as np
 
 
     from rl_classes import Agent, Environment
 
-
-
-    models_dir = 'trader_bot_model'
+    models_dir = '../../output/trader_bot_model'
     num_episodes = epochs
     mkdir_(models_dir)
     
@@ -85,6 +82,21 @@ def trader_bot(mode, epochs=50, split=0.8, initial_cash=1000):
      
     return agent, portfolio
 
+def play_one_episode(agent, env, is_train, scaler):
+    # note: after transforming states are already 1xD 
+    state = env.reset()
+    state = scaler.transform([state])
+    done = False
+    
+    while not done:
+        action = agent.act(state)
+        next_state, reward, done, info = env.step(action)
+        next_state = scaler.transform([next_state])
+        if is_train == 'train':
+            agent.train(state, action, reward, next_state, done)
+        state = next_state
+        
+    return info['current_value']
 
 def get_scaler(env):
     """
