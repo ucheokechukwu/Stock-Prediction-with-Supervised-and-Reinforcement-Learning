@@ -1,0 +1,2 @@
+model_checkpoint_path: "hypertuning_128_128_True_adam"
+all_model_checkpoint_paths: "hypertuning_128_128_True_adam"
