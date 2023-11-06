@@ -1,4 +1,4 @@
-# Stock-Prediction-with Deep Learning and Reinforcement Learning
+# Stock Prediction with Deep Learning and Reinforcement Learning
 
 Forecasting the price movement of Stock (use case NFLX) using deep learning and reinforcement learning techniques. Also includes topical analysis of social media and news data, to see influence, if any on price movement.
 <candle stick>
