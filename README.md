@@ -57,7 +57,7 @@ However the low Recall and Precision of the non-stationary classes indicates tha
 
 The classifier model broadcasts its results at the end of US market day via flask-based app running on an AWS EC2 instance.
 
-[NFLX Ticker Genie](http://ec2-18-220-177-255.us-east-2.compute.amazonaws.com:8000/)
+[NFLX Ticker Genie](http://ec2-18-225-249-158.us-east-2.compute.amazonaws.com:8000/)
 
 ## Reinforcement Learning
 
